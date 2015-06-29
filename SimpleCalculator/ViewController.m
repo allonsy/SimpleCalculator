@@ -2,11 +2,12 @@
 //  ViewController.m
 //  SimpleCalculator
 //
-//  Created by Allen Wu on 6/29/15.
+//  Created by Allen Wu and Alec Snyder on 6/29/15.
 //  Copyright (c) 2015 Originate. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "evaluate.h"
 
 @interface ViewController ()
 
@@ -98,6 +99,11 @@
        self.lcdDisplay.text = [self.lcdDisplay.text substringToIndex:[self.lcdDisplay.text length]-1];
     }
   }
+  else if([buttonText isEqualToString:@"enter"])
+  {
+    self.lcdDisplay.text = [NSString stringWithFormat:@"%d", evaluate(self.lcdDisplay.text)];
+  }
+  
   else
   {
     self.lcdDisplay.text = [self.lcdDisplay.text stringByAppendingString:buttonText];
